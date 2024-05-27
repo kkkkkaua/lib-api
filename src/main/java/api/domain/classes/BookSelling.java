@@ -2,31 +2,52 @@ package api.domain.classes;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "book_selling")
 public class BookSelling {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
 	private long bookSellingId;
-	private Book book;
-	private Customer customer;
+	
+	@NotNull
+	@Column(name = "book_id", unique = true, nullable = false)
+	private long bookId;
+	
+	@NotNull
+	@Column(name = "customer_id", unique = false, nullable = false)
+	private long customerId;
+	
+	@NotNull
+	@Column(name = "selling_date", unique = false, nullable = false)
 	private LocalDate sellingDate;
 	
 	public BookSelling() {}
-	
-	public BookSelling(Book book, Customer customer) {
-		this.book = book;
-		this.customer = customer;
-		this.sellingDate = LocalDate.now();
+
+	public BookSelling(long bookId, long customerId, LocalDate sellingDate) {
+		this.bookId = bookId;
+		this.customerId = customerId;
+		this.sellingDate = sellingDate;
 	}
 
 	public long getBookSellingId() {
 		return bookSellingId;
 	}
 
-	public Book getBook() {
-		return book;
+	public long getBookId() {
+		return bookId;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public long getCustomerId() {
+		return customerId;
 	}
 
 	public LocalDate getSellingDate() {
