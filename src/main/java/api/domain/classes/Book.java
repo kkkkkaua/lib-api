@@ -1,6 +1,7 @@
 package api.domain.classes;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +19,7 @@ public class Book {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	private long bookId;
+	private UUID bookId;
 	
 	@NotBlank
 	@Size(min = 3)
@@ -73,7 +74,7 @@ public class Book {
 		this.stockId = stockId;
 	}
 
-	public long getBookId() {
+	public UUID getBookId() {
 		return bookId;
 	}
 

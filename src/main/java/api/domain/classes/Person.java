@@ -1,5 +1,7 @@
 package api.domain.classes;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +16,7 @@ public class Person {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	private long personId;
+	private UUID personId;
 	
 	@NotBlank
 	@Size(min = 3)
@@ -42,7 +44,7 @@ public class Person {
 		this.nationality = nationality;
 	}
 	
-	public long getPersonId() {
+	public UUID getPersonId() {
 		return personId;
 	}
 	public String getName() {

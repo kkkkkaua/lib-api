@@ -1,5 +1,7 @@
 package api.domain.classes;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ public class Stock {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	private long stockId;
+	private UUID stockId;
 	
 	@NotBlank
 	@Size(min = 3)
@@ -39,7 +41,7 @@ public class Stock {
 		this.capacity = capacity;
 	}
 
-	public long getStockId() {
+	public UUID getStockId() {
 		return stockId;
 	}
 
