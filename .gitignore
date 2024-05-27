@@ -1,0 +1,13 @@
+.metadata
+.project
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.settings/
+.classpath
+*.class
+target/
+pom.xml
